@@ -1,0 +1,22 @@
+<h1>Your Cart!</h1>
+
+<table id="cart-products">
+  <% if @cart.products.empty? %>
+    <tr><td><%= "Your cart is empty"%></td></tr>
+  <% else %>
+    <tr>
+      <th><%= "Product Name" %></th>
+      <th><%= "Product Price" %></th>
+    </tr>
+    <% @cart.products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, product %></td>
+        <td><%= product.price %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td><%= "Total price"%></td>
+      <td><%= @cart.total_price%></td>
+    </tr>
+  <% end %>
+</table>
