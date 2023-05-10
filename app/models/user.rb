@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :timeoutable
 
   has_one :cart
+  has_many :purchases
 end
