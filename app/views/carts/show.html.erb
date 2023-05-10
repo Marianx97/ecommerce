@@ -1,9 +1,8 @@
-<h1>Your Cart!</h1>
-
-<table id="cart-products">
-  <% if @cart.products.empty? %>
-    <tr><td><%= "Your cart is empty"%></td></tr>
-  <% else %>
+<h2>Cart</h2>
+<% if @cart.products.empty? %>
+  <p><%= "Your cart is empty"%></p>
+<% else %>
+  <table id="cart-products">
     <tr>
       <th><%= "Product Name" %></th>
       <th><%= "Product Price" %></th>
@@ -14,7 +13,7 @@
         <td><%= product.price %></td>
         <td>
           <%= form_with(url: carts_remove_product_path) do |f| %>
-            <%= f.hidden_field :id, value: product.id%>
+            <%= f.hidden_field :product_id, value: product.id%>
             <%= f.submit 'Remove from cart' %>
           <% end %>
         </td>
@@ -24,7 +23,10 @@
       <td><%= "Total price"%></td>
       <td><%= @cart.total_price%></td>
     </tr>
+  </table>
+  <%= form_with(url: purchases_path) do |f| %>
+    <%= f.submit 'Purchase Cart' %>
   <% end %>
-</table>
+<% end %>
 
-<%= link_to "Back to products", products_path %>
+<p><%= link_to "Back to products", products_path %></p>

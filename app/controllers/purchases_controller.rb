@@ -7,9 +7,22 @@ class PurchasesController < ApplicationController
 
   def show; end
 
+  def create
+    purchase = Purchase.create(
+      user_id: current_user.id,
+      products: @cart.products
+    )
+
+    empty_cart if purchase.id.present?
+  end
+
   private
 
   def set_purchase
     @purchase = Purchase.find(params[:id])
+  end
+
+  def empty_cart
+    @cart.empty
   end
 end

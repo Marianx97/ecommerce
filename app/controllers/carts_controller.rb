@@ -2,10 +2,10 @@ class CartsController < ApplicationController
   def show; end
 
   def add_product
-    puts 'Hello there'
+    @cart.add(params[:product_id])
   end
 
   def remove_product
-    puts 'General Kenobi'
+    @cart.remove(params[:product_id])
   end
 end
