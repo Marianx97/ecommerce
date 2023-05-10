@@ -13,7 +13,7 @@
         <td><%= link_to product.name, product %></td>
         <td><%= product.price %></td>
         <td>
-          <%= form_with(url: cart_remove_product_path) do |f| %>
+          <%= form_with(url: carts_remove_product_path) do |f| %>
             <%= f.hidden_field :id, value: product.id%>
             <%= f.submit 'Remove from cart' %>
           <% end %>

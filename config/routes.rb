@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'cart', to: 'cart#show'
-  post 'cart/add_product'
-  post 'cart/remove_product'
-  resources :products
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :products, only: %i[index show]
+  resources :carts, only: %i[show]
+  post 'carts/add_product'
+  post 'carts/remove_product'
 
   # Defines the root path route ("/")
   root 'products#index'

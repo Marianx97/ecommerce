@@ -1,5 +1,5 @@
 <%= render @product %>
-<%= form_with(url: cart_add_product_path) do |f| %>
+<%= form_with(url: carts_add_product_path) do |f| %>
   <%= f.hidden_field :id, value: @product.id%>
   <%= f.submit 'Add to cart' %>
 <% end %>

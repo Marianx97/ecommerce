@@ -1,4 +1,4 @@
-<h1>Products</h1>
+<h2>Products</h2>
 
 <table id="products">
   <tr>
@@ -10,7 +10,7 @@
       <td><%= link_to product.name, product %></td>
       <td><%= product.price %></td>
       <td>
-        <%= form_with(url: cart_add_product_path) do |f| %>
+        <%= form_with(url: carts_add_product_path) do |f| %>
           <%= f.hidden_field :id, value: product.id%>
           <%= f.submit 'Add to cart' %>
         <% end %>
