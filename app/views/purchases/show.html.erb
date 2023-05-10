@@ -1,0 +1,19 @@
+<h2><%= "Purchase #{@purchase.id}" %></h2>
+
+<h3>Purchase products:</h3>
+<table>
+  <tr>
+    <th><%= "Product Name" %></th>
+    <th><%= "Product Price" %></th>
+  </tr>
+  <% @purchase.products.each do |product| %>
+    <tr>
+      <td><%= link_to product.name, product %></td>
+      <td><%= product.price %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td><%= "Total price"%></td>
+    <td><%= @purchase.total_price%></td>
+  </tr>
+</table>
