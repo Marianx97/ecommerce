@@ -1,4 +1,4 @@
-class CartsController < ApplicationController
+class CartsController < ApiController
   def show; end
 
   def add_product
