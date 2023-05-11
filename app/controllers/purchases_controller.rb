@@ -14,6 +14,8 @@ class PurchasesController < ApiController
     )
 
     empty_cart if purchase.id.present?
+
+    redirect_to action: :show, id: purchase.id
   end
 
   private
