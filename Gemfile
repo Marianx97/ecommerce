@@ -57,6 +57,12 @@ group :development, :test do
 
   # Use Rspec for testing
   gem 'rspec-rails', '~> 6.0.0'
+
+  # Use FactoryBot for tests factories
+  gem 'factory_bot_rails'
+
+  # Use Faker for mocking data
+  gem 'faker'
 end
 
 group :development do
