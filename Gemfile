@@ -58,7 +58,7 @@ group :development, :test do
   # Use byebug for development debugging
   gem 'byebug'
 
-  # Use Rspec for testing
+  # Use RSpec for testing
   gem 'rspec-rails', '~> 6.0.0'
 
   # Use FactoryBot for tests factories
