@@ -41,3 +41,8 @@ rails db:seed
 * Go to the project root by running `cd challenge-ecommerce`
 * Start the server by running `rails server` or `rails s`
 * Go the browser and type the url `localhost:3000`
+* To sign in you can use the user created by the seed
+```
+email: user@test.com
+password: fake_pass
+```
