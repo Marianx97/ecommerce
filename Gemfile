@@ -54,6 +54,9 @@ gem 'devise'
 group :development, :test do
   # Use byebug for development debugging
   gem 'byebug'
+
+  # Use Rspec for testing
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
@@ -67,9 +70,9 @@ group :development do
   # gem "spring"
 end
 
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
-end
+# group :test do
+#   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+#   gem "capybara"
+#   gem "selenium-webdriver"
+#   gem "webdrivers"
+# end
