@@ -12,15 +12,18 @@
   <body>
     <% if user_signed_in? %> 
     <div> Welcome <%= current_user.email %> </div>
-      <%= link_to 'My Cart', @cart%>
-      <%= link_to 'My Purchases', purchases_path %>
-      <%= button_to 'Sign out', destroy_user_session_path, method: :delete %> 
+      <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <p>
+        <%= link_to 'Products', products_path %>
+        <%= link_to 'My Cart', @cart%>
+        <%= link_to 'My Purchases', purchases_path %>
+      </p>
     <% else %>
       <%= button_to 'Sign in', new_user_session_path %> 
     <% end %>
-    <h1>My ecommerce!</h1>
     <p class='notice'><%= notice %></p> 
     <p class='alert'><%= alert %></p>
+    <h1>My ecommerce!</h1>
     <%= yield %>
   </body>
 </html>
