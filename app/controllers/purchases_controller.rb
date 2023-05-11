@@ -8,23 +8,35 @@ class PurchasesController < ApiController
   def show; end
 
   def create
-    purchase = Purchase.create(
-      user_id: current_user.id,
-      products: @cart.products
-    )
+    products_without_stock = @cart.products.select { |p| p.stock == 0 }
 
-    empty_cart if purchase.id.present?
+    if products_without_stock.empty?
+      ActiveRecord::Base.transaction do
+        purchase = Purchase.create(
+          user_id: current_user.id,
+          products: @cart.products
+        )
 
-    redirect_to action: :show, id: purchase.id
+        purchase.products.each do |product|
+          product.lock!
+          product.decrement!(:stock)
+        end
+
+        @cart.empty
+
+        redirect_to action: :show, id: purchase.id
+      end
+    else
+      products_without_stock.each do |product|
+        @cart.remove(product.id)
+        redirect_to @cart, alert: 'Products without stock were removed from cart'
+      end
+    end
   end
 
   private
 
   def set_purchase
     @purchase = Purchase.find(params[:id])
-  end
-
-  def empty_cart
-    @cart.empty
   end
 end

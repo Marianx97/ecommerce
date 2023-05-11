@@ -5,7 +5,7 @@
     <th><%= "Product Name" %></th>
     <th><%= "Product Price" %></th>
   </tr>
-  <% @products.each do |product| %>
+  <% @products.select {|p| p.stock > 0}.each do |product| %>
     <tr>
       <td><%= link_to product.name, product %></td>
       <td><%= product.price %></td>
