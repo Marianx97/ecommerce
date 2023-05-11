@@ -3,8 +3,8 @@
 ## Install dependencies
 * Clone the repository by running `git clone git@github.com:Marianx97/ecommerce.git`
 * Go to the project root by running `cd challenge-ecommerce`
-* Download and install Rbenv.
-* Download and install Ruby-Build.
+* Download and install [Rbenv](https://github.com/rbenv/rbenv).
+* Download and install [Ruby-Build](https://github.com/rbenv/ruby-build).
 * Install the appropiate Ruby version by running `rbenv install [version]` where `version` is the one located in `.ruby-version`
 
 ## Installing Rails gems
